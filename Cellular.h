@@ -5,7 +5,13 @@
 #include <stdio.h>
 #include "tools.h"
 
-#define BOARD_SIZE 64
+//#define DBL_PIX 1
+
+#ifdef DBL_PIX
+  #define BOARD_SIZE 64
+#else
+  #define BOARD_SIZE 128
+#endif
 
 static uint8_t cell[BOARD_SIZE][BOARD_SIZE];
 static uint8_t old_cell[BOARD_SIZE][BOARD_SIZE];

@@ -70,10 +70,14 @@ void CalcCells(void)
       
       if (cell[x][y] != old_cell[x][y])
       {
+#ifdef DBL_PIX
         SSD1327_DrawPixel(x*2,   y*2,   cell[x][y] * WHITE);
         SSD1327_DrawPixel(x*2+1, y*2,   cell[x][y] * WHITE);
         SSD1327_DrawPixel(x*2,   y*2+1, cell[x][y] * WHITE);
         SSD1327_DrawPixel(x*2+1, y*2+1, cell[x][y] * WHITE);
+#else
+        SSD1327_DrawPixel(x,   y,   cell[x][y] * WHITE);
+#endif
       }
       
     }
